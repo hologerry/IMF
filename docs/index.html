@@ -1,0 +1,389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Implicit Motion Function" />
+    <meta name="keywords" content="IMF" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IMF</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FZ85TD1NHH"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FZ85TD1NHH");
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
+
+    <link rel="stylesheet" href="static/css/bulma.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-carousel.min.css" />
+    <link rel="stylesheet" href="static/css/bulma-slider.min.css" />
+    <link rel="stylesheet" href="static/css/fontawesome.all.min.css" />
+    <link rel="stylesheet" href="static/css/index.css" />
+    <link rel="stylesheet" href="static/css/video-gallery.css" />
+
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
+    <script src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/video-gallery.js"></script>
+  </head>
+
+  <body>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 class="title is-1 publication-title">Implicit Motion Function</h1>
+              <div class="is-size-5 publication-authors">
+                <!-- <span class="author-block"><a href="https://yuegao.me">Yue Gao</a></span>
+                <p>et al.</p> -->
+              </div>
+
+              <!-- <div class="is-size-5 publication-authors">
+                <span class="author-block">Microsoft Research</span>
+              </div> -->
+
+              <div class="column has-text-centered">
+                <div class="publication-links">
+                  <!-- PDF Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://openaccess.thecvf.com/content/CVPR2024/papers/Gao_Implicit_Motion_Function_CVPR_2024_paper.pdf"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Paper</span>
+                    </a>
+                  </span>
+                  <!-- SM Link. -->
+                  <span class="link-block">
+                    <a
+                      href="https://openaccess.thecvf.com/content/CVPR2024/supplemental/Gao_Implicit_Motion_Function_CVPR_2024_supplemental.pdf"
+                      class="external-link button is-normal is-rounded is-dark"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary Material</span>
+                    </a>
+                  </span>
+                  <!-- Code Link. -->
+                  <!-- <span class="link-block">
+                  <a
+                    href="https://github.com/google/nerfies"
+                    class="external-link button is-normal is-rounded is-dark"
+                  >
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code (soon)</span>
+                  </a>
+                </span> -->
+                  <!-- Dataset Link. -->
+                  <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                  class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                    <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body" align="center">
+          <video id="intro_1" autoplay controls muted loop playsinline width="69%">
+            <source src="./videos/recon_face_intro_merged_frames.mp4" type="video/mp4" />
+          </video>
+          <video id="intro_2" autoplay controls muted loop playsinline width="69%">
+            <source src="./videos/recon_webvid_intro_merged_frames.mp4" type="video/mp4" />
+          </video>
+          <br />
+          <br />
+          <p class="subtitle has-text-centered">
+            <span class="small-caps">IMF</span> represents the motion in latent space and model the correlation implicitly.
+            <br/> Compared to explicit methods PECHead and TPSMM, our IMF faithfully reconstructs the current frame.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+          <div class="column is-four-fifths">
+            <h2 class="title is-3">Abstract</h2>
+            <div class="content has-text-justified">
+              <p>
+                Recent advancements in video modeling extensively rely on optical flow to represent the relationships across frames, but this approach
+                often lacks efficiency and fails to model the probability of the intrinsic motion of objects. In addition, conventional
+                encoder-decoder frameworks in video processing focus on modeling the correlation in the encoder, leading to limited generative
+                capabilities and redundant intermediate representations. To address these challenges, this paper proposes a novel Implicit Motion
+                Function (IMF) method. Our approach utilizes a low-dimensional latent token as the implicit representation, along with the use of
+                cross-attention, to implicitly model the correlation between frames. This enables the implicit modeling of temporal correlations and
+                understanding of object motions. Our method not only improves sparsity and efficiency in representation but also explores the
+                generative capabilities of the decoder by integrating correlation modeling within it. The IMF framework facilitates video editing and
+                other generative tasks by allowing the direct manipulation of latent tokens. We validate the effectiveness of IMF through extensive
+                experiments on multiple video tasks, demonstrating superior performance in terms of reconstructed video quality, compression
+                efficiency and generation ability.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--/ Abstract. -->
+      </div>
+    </section>
+
+    <!-- Talking Head Video Reconstruction -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">Talking Head Video Reconstruction</h2>
+
+          <div class="video-gallery-buttons" id="gallery-buttons-head-recon">
+            <button class="button is-two-line is-primary" data-video-index="0">
+              <p>
+                Video Results <br />
+                Group A
+              </p>
+            </button>
+            <button class="button is-two-line" data-video-index="1">
+              <p>
+                Video Results <br />
+                Group B
+              </p>
+            </button>
+            <button class="button is-two-line" data-video-index="2">
+              <p>
+                Video Results <br />
+                Group C
+              </p>
+            </button>
+          </div>
+
+          <!-- <div class="video-content">
+            <p>
+              Using <i>IMF</i> you can create great visual results for talking head video reconstruction.
+            </p>
+          </div> -->
+
+          <div class="video-gallery-carousel" id="gallery-carousel-head-recon">
+            <div class="video-gallery-item active">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/recon_face_merged_frames.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-gallery-item">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/recon_face_merged_frames_sm_1.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="video-gallery-item">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/recon_face_merged_frames_sm_2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Talking Head Video Reconstruction-->
+
+    <!-- General Video Reconstruction -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">General Video Reconstruction</h2>
+
+          <div class="video-gallery-buttons" id="gallery-buttons-webvid-recon">
+            <button class="button is-two-line is-primary" data-video-index="0">
+              <p>
+                Video Results <br />
+                Group A
+              </p>
+            </button>
+            <button class="button is-two-line" data-video-index="1">
+              <p>
+                Video Results <br />
+                Group B
+              </p>
+            </button>
+            <button class="button is-two-line" data-video-index="2">
+              <p>
+                Video Results <br />
+                Group C
+              </p>
+            </button>
+          </div>
+
+          <!-- <div class="video-content">
+            <p>Using <i>IMF</i> you can create great visual results for general video reconstruction.</p>
+          </div> -->
+
+          <div class="video-gallery-carousel" id="gallery-carousel-webvid-recon">
+            <div class="video-gallery-item active">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/recon_webvid_merged_frames.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-gallery-item">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/recon_webvid_merged_frames_sm_1.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div class="video-gallery-item">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/recon_webvid_merged_frames_sm_2.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--General Video Reconstruction-->
+
+    <!-- Comparisons with Explicit Methods -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">Comparisons with Explicit Methods</h2>
+          <!-- <div class="video-content">
+            <p>Using <i>IMF</i> you can create great visual results for video reconstruction.</p>
+          </div> -->
+          <div class="video-gallery-carousel" id="gallery-carousel-explicit-recon">
+            <div class="video-gallery-item active">
+              <video preload="auto" autoplay controls muted loop height="100%">
+                <source src="./videos/recon_explicit_comp_merged_frames.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Comparisons with Explicit Methods-->
+
+
+    <!-- Free Head Pose Editing -->
+    <section class="hero is-small">
+      <div class="hero-body">
+        <div class="container">
+          <h2 class="title is-2">Free Head Pose Editing</h2>
+
+          <div class="video-gallery-buttons" id="gallery-buttons-pose-editing">
+            <button class="button is-two-line is-primary" data-video-index="0">
+              <p>
+                Video Results <br />
+                Group A
+              </p>
+            </button>
+            <button class="button is-two-line" data-video-index="1">
+              <p>
+                Video Results <br />
+                Group B
+              </p>
+            </button>
+            <button class="button is-two-line" data-video-index="2">
+              <p>
+                Video Results <br />
+                Group C
+              </p>
+            </button>
+            <!-- <button class="button is-two-line" data-video-index="3">
+              <p>
+                Video Results <br />
+                Group D
+              </p>
+            </button> -->
+          </div>
+<!-- 
+          <div class="video-content">
+            <p>Using <i>IMF</i> you can create great visual results for head pose editing.</p>
+          </div> -->
+
+          <div class="video-gallery-carousel" id="gallery-carousel-pose-editing">
+            <div class="video-gallery-item active">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/free_wild_pose_merged_frames.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-gallery-item">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/free_wild_pose_merged_frames_1.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="video-gallery-item">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/free_wild_pose_merged_frames_2.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <!-- <div class="video-gallery-item">
+              <video preload="none" controls muted loop height="100%">
+                <source src="./videos/free_wild_pose_merged_frames_3.mp4" type="video/mp4" />
+              </video>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Free Head Pose Editing-->
+
+    <section class="section" id="BibTeX">
+      <div class="container is-max-desktop content">
+        <h2 class="title">BibTeX</h2>
+        <pre><code>@inproceedings{gao2024implicit,
+  title={Implicit Motion Function},
+  author={Gao, Yue and Li, Jiahao and Chu, Lei and Lu, Yan},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={19278--19289},
+  year={2024}
+}</code></pre>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="content has-text-centered">
+          <!-- <a class="icon-link"
+           href="./pdfs/">
+          <i class="fas fa-file-pdf"></i>
+        </a> -->
+          <a class="icon-link" href="https://yuegao.me" class="external-link" disabled>
+            <i class="fas fa-home"></i>
+          </a>
+        </div>
+        <div class="columns is-centered">
+          <div class="column is-8">
+            <div class="content">
+              <!-- <p>
+              This website is licensed under a <a rel="license"
+                                                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p> -->
+              <p>
+                The source code of this website is heavily borrowed from the
+                <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>. We thank the authors for their great work.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
